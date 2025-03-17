@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Output Example</title>
+    <script>
+
+        let _availableDonuts = ["CRULER", "ECLAIR", "SPRINKLES"];
+
+        console.log("The available donut names are below"); 
+        console.log(_availableDonuts); 
+
+        let _prices = {
+		"CRULER" : 1.49,
+		"ECLAIR" : 1.39,
+		"SPRINKLES" : 2.59
+	};
+
+	console.log("The price data is below:"); 
+	console.log(_prices); 
+
+
+        function computeResult() {
+
+	    console.log("**** INSIDE computeResult function ****");
+
+	    let _input = document.getElementById("inputField").value;
+	
+	    console.log("The value of the input variable is below...");
+	    
+	    console.log(_input);
+
+	    let _lookup = _prices[_input];
+
+	    let _result = "...PRICE";
+
+	    if (_lookup == undefined || _lookup == null || _lookup == "") {
+
+	_result = "...sorry the donut you're looking for is not on the menu.";
+
+	document.getElementById("output").textContent = _result; 
+	
+	// exit the function by a void return
+	return; 
+}
+
+	    // reassign the result
+            _result = "The " + _input + " donut costs $" + _lookup; 
+
+
+            document.getElementById("output").textContent = _result;
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <h1>JavaScript Function Output</h1>
+
+    <input type="text" id="inputField" placeholder="Enter a type of donut.">
+
+    <button onclick="computeResult()">Submit</button>
+
+    <p>Function Result: <span id="output"></span></p>
+</body>
+</html>
